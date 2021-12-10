@@ -1,0 +1,4 @@
+P;Pedido do nelson;Nelson;nelson.hotmail.com;05881368754;
+L;HarryPotter;49.0;Rocco;9780590353403;1;J.K. Rolling;Infanto-Juvenil;importado
+R;Caras;10.0;Caras;Semanal;impressa;infantil
+M;Naruto;10.0;Panini;1;Masashi Kishimoto;Shonen;infantil
