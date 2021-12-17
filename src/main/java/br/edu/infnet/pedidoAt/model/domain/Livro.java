@@ -15,6 +15,12 @@ public class Livro extends Publicacao{
 		super(descricao, valor, editora);
 	}
 
+	@Override
+	public float calcularValor() {
+	
+		return this.getValor() 
+				+ (importado ? this.getValor() : 0);
+	}
 	
 	@Override
 	public String toString() {

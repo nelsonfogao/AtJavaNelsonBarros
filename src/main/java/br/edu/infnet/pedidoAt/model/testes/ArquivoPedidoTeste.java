@@ -15,6 +15,7 @@ import br.edu.infnet.pedidoAt.exceptions.EmailInvalidoException;
 import br.edu.infnet.pedidoAt.exceptions.LeitorInexistenteException;
 import br.edu.infnet.pedidoAt.exceptions.NomeInvalidoException;
 import br.edu.infnet.pedidoAt.exceptions.PedidoSemPublicacoesException;
+import br.edu.infnet.pedidoAt.exceptions.PeriodicidadeInvalidaException;
 import br.edu.infnet.pedidoAt.exceptions.ValorInvalidoException;
 import br.edu.infnet.pedidoAt.model.domain.Leitor;
 import br.edu.infnet.pedidoAt.model.domain.Livro;
@@ -96,7 +97,7 @@ public class ArquivoPedidoTeste {
 							caras.setImpressa(Boolean.valueOf(campos[5]));
 							caras.setAdulta(Boolean.valueOf(campos[6]));
 							publicacoes.add(caras);
-						} catch (ValorInvalidoException | EditoraInvalidaException e) {
+						} catch (ValorInvalidoException | EditoraInvalidaException | PeriodicidadeInvalidaException e) {
 							System.out.println(e.getMessage());
 						}
 	

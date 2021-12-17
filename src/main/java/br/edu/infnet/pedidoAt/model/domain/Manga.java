@@ -12,6 +12,13 @@ public class Manga extends Publicacao{
 	public Manga(String descricao, float valor, String editora) throws ValorInvalidoException, EditoraInvalidaException {
 		super(descricao, valor, editora);
 	}
+	
+	@Override
+	public float calcularValor() {
+	
+		return this.getValor() 
+				+ (adulto ? this.getValor() : 0);
+	}
 
 	@Override
 	public String toString() {

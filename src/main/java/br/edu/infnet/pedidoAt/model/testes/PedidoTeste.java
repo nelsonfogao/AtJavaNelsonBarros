@@ -9,6 +9,7 @@ import br.edu.infnet.pedidoAt.exceptions.EmailInvalidoException;
 import br.edu.infnet.pedidoAt.exceptions.LeitorInexistenteException;
 import br.edu.infnet.pedidoAt.exceptions.NomeInvalidoException;
 import br.edu.infnet.pedidoAt.exceptions.PedidoSemPublicacoesException;
+import br.edu.infnet.pedidoAt.exceptions.PeriodicidadeInvalidaException;
 import br.edu.infnet.pedidoAt.exceptions.ValorInvalidoException;
 import br.edu.infnet.pedidoAt.model.domain.Leitor;
 import br.edu.infnet.pedidoAt.model.domain.Livro;
@@ -41,7 +42,16 @@ public static void main(String[] args) {
 			caras.setImpressa(true);
 			caras.setAdulta(false);
 			listagemPublicacao.add(caras);
-		} catch (ValorInvalidoException | EditoraInvalidaException e) {
+		} catch (ValorInvalidoException | EditoraInvalidaException | PeriodicidadeInvalidaException e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			Revista caras = new Revista("Caras", 10, "Caras");
+			caras.setPeriodicidade("");
+			caras.setImpressa(true);
+			caras.setAdulta(false);
+			listagemPublicacao.add(caras);
+		} catch (ValorInvalidoException | EditoraInvalidaException | PeriodicidadeInvalidaException e) {
 			System.out.println(e.getMessage());
 		}
 

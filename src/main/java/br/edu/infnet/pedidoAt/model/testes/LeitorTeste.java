@@ -10,41 +10,27 @@ public class LeitorTeste {
 	public static void main(String[] args) {
 		
 		try {
-			Leitor leitor = new Leitor("Elberth", "elberth@elberth", "123.456.789-12");
+			Leitor leitor = new Leitor("Nelson", "nelson.barros@al.infnet.edu.br", "058.813.687-54");
 			System.out.println(leitor);
 		} catch (NomeInvalidoException | EmailInvalidoException | CpfInvalidoException e) {
 			System.out.println(e.getMessage());
 		}
 
 		try {
-			Leitor leitor = new Leitor(null, "elberth@elberth", "123.456.789-12");
+			Leitor leitor = new Leitor(null, "nelson.barros@al.infnet.edu.br", "058.813.687-54");
+			System.out.println(leitor);
+		} catch (NomeInvalidoException | EmailInvalidoException | CpfInvalidoException e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			Leitor leitor = new Leitor("Nelson", null, "058.813.687-54");
 			System.out.println(leitor);
 		} catch (NomeInvalidoException | EmailInvalidoException | CpfInvalidoException e) {
 			System.out.println(e.getMessage());
 		}
 
 		try {
-			Leitor leitor = new Leitor("Elberth", "elberth@elberth", "123.456.789-12");
-			System.out.println(leitor);
-		} catch (NomeInvalidoException | EmailInvalidoException | CpfInvalidoException e) {
-			System.out.println(e.getMessage());
-		}
-
-		try {
-			Leitor leitor = new Leitor("Elberth", null, "123.456.789-12");
-			System.out.println(leitor);
-		} catch (NomeInvalidoException | EmailInvalidoException | CpfInvalidoException e) {
-			System.out.println(e.getMessage());
-		}
-
-		try {
-			Leitor leitor = new Leitor("Elberth", "elberth@elberth", "123.456.789-12");
-			System.out.println(leitor);
-		} catch (NomeInvalidoException | EmailInvalidoException | CpfInvalidoException e) {
-			System.out.println(e.getMessage());
-		}
-		try {
-			Leitor leitor = new Leitor("Elberth", "elberth@elberth", null);
+			Leitor leitor = new Leitor("Nelson", "nelson.barros@al.infnet.edu.br", null);
 			System.out.println(leitor);
 		} catch (NomeInvalidoException | EmailInvalidoException | CpfInvalidoException e) {
 			System.out.println(e.getMessage());

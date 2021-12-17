@@ -15,7 +15,7 @@ public abstract class Publicacao {
 			throw new ValorInvalidoException("Impossível realizar o cadastramento do produto " + titulo + " com o valor zerado ou negativo!");
 		}
 
-		if(editora.length() <= 0) {
+		if(editora == null || editora.isBlank()) {
 			throw new EditoraInvalidaException("Impossível realizar o cadastramento do produto " + titulo + " com a editora inválida!");
 		}
 		
@@ -23,6 +23,8 @@ public abstract class Publicacao {
 		this.valor = valor;
 		this.editora = editora;
 	}
+	
+	public abstract float calcularValor();
 	
 	@Override
 	public String toString() {

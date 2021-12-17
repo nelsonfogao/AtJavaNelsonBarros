@@ -30,7 +30,7 @@ public class Pedido {
 		float valorTotal = 0;
 		
 		for(Publicacao item : publicacoes) {
-			valorTotal = valorTotal + item.getValor();
+			valorTotal = valorTotal + item.calcularValor();
 		}
 		
 		return valorTotal;

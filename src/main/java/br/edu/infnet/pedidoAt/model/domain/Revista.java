@@ -1,6 +1,7 @@
 package br.edu.infnet.pedidoAt.model.domain;
 
 import br.edu.infnet.pedidoAt.exceptions.EditoraInvalidaException;
+import br.edu.infnet.pedidoAt.exceptions.PeriodicidadeInvalidaException;
 import br.edu.infnet.pedidoAt.exceptions.ValorInvalidoException;
 
 public class Revista extends Publicacao{
@@ -11,6 +12,13 @@ public class Revista extends Publicacao{
 
 	public Revista(String descricao, float valor, String editora) throws ValorInvalidoException, EditoraInvalidaException {
 		super(descricao, valor, editora);
+	}
+	
+	@Override
+	public float calcularValor() {
+	
+		return this.getValor() 
+				+ (adulta ? this.getValor() : 0);
 	}
 	
 	@Override
@@ -29,10 +37,6 @@ public class Revista extends Publicacao{
 	public String getPeriodicidade() {
 		return periodicidade;
 	}
-
-	public void setPeriodicidade(String periodicidade) {
-		this.periodicidade = periodicidade;
-	}
 	
 	public boolean ehImpressa() {
 		return impressa;
@@ -48,5 +52,14 @@ public class Revista extends Publicacao{
 
 	public void setAdulta(boolean adulta) {
 		this.adulta = adulta;
+	}
+	
+	public void setPeriodicidade(String periodicidade) throws PeriodicidadeInvalidaException {
+
+		if(periodicidade == null || periodicidade.isBlank()) {
+			throw new PeriodicidadeInvalidaException("Impossível realizar o cadastramento da revista " + this.getDescricao() + " com a periodicidade invalida!");
+		}
+		
+		this.periodicidade = periodicidade;
 	}
 }

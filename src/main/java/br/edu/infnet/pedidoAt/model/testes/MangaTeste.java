@@ -18,6 +18,36 @@ public class MangaTeste {
 			System.out.println(e.getMessage());
 		}
 		try {
+			Manga naruto = new Manga("Naruto", -1, "Panini");
+			naruto.setVolume(1);
+			naruto.setAutor("Masashi Kishimoto");
+			naruto.setCategoria("Infantil");
+			naruto.setAdulto(false);
+			System.out.println("Valor de venda: " + naruto.getValor());	
+		} catch (ValorInvalidoException | EditoraInvalidaException e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			Manga naruto = new Manga("Naruto", 10, "");
+			naruto.setVolume(1);
+			naruto.setAutor("Masashi Kishimoto");
+			naruto.setCategoria("Infantil");
+			naruto.setAdulto(false);
+			System.out.println("Valor de venda: " + naruto.getValor());	
+		} catch (ValorInvalidoException | EditoraInvalidaException e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			Manga naruto = new Manga("Naruto", 10, null);
+			naruto.setVolume(1);
+			naruto.setAutor("Masashi Kishimoto");
+			naruto.setCategoria("Infantil");
+			naruto.setAdulto(false);
+			System.out.println("Valor de venda: " + naruto.getValor());	
+		} catch (ValorInvalidoException | EditoraInvalidaException e) {
+			System.out.println(e.getMessage());
+		}
+		try {
 			Manga bleach = new Manga("Bleach", 15, "Panini");
 			bleach.setVolume(10);
 			bleach.setAutor("Tite Kubo");

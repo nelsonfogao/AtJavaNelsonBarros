@@ -19,6 +19,39 @@ public class LivroTeste {
 		} catch (ValorInvalidoException | EditoraInvalidaException e) {
 			System.out.println(e.getMessage());
 		}
+		try {
+			Livro harryPotter = new Livro("Harry Potter", 49, null);
+			harryPotter.setISBN("9780590353403");
+			harryPotter.setAutor("J.K Rolling");
+			harryPotter.setEdicao(1);
+			harryPotter.setCategoria("Infanto-Juvenil");
+			harryPotter.setImportado(true);
+			System.out.println("Valor de venda: " + harryPotter.getValor());
+		} catch (ValorInvalidoException | EditoraInvalidaException e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			Livro harryPotter = new Livro("Harry Potter", 49, "");
+			harryPotter.setISBN("9780590353403");
+			harryPotter.setAutor("J.K Rolling");
+			harryPotter.setEdicao(1);
+			harryPotter.setCategoria("Infanto-Juvenil");
+			harryPotter.setImportado(true);
+			System.out.println("Valor de venda: " + harryPotter.getValor());
+		} catch (ValorInvalidoException | EditoraInvalidaException e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			Livro harryPotter = new Livro("Harry Potter", -1, "Rocco");
+			harryPotter.setISBN("9780590353403");
+			harryPotter.setAutor("J.K Rolling");
+			harryPotter.setEdicao(1);
+			harryPotter.setCategoria("Infanto-Juvenil");
+			harryPotter.setImportado(true);
+			System.out.println("Valor de venda: " + harryPotter.getValor());
+		} catch (ValorInvalidoException | EditoraInvalidaException e) {
+			System.out.println(e.getMessage());
+		}
 
 		try {
 			Livro percyJackson = new Livro("Percy Jackson", 29, "Casa das Letras");
