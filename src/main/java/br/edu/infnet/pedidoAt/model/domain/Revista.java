@@ -1,17 +1,28 @@
 package br.edu.infnet.pedidoAt.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import br.edu.infnet.pedidoAt.exceptions.EditoraInvalidaException;
-import br.edu.infnet.pedidoAt.exceptions.PeriodicidadeInvalidaException;
 import br.edu.infnet.pedidoAt.exceptions.ValorInvalidoException;
 
+
+
+@Entity
+@Table(name = "TRevista")
 public class Revista extends Publicacao{
+	
 	
 	private String periodicidade;
 	private boolean impressa;
 	private boolean adulta;
 
-	public Revista(String descricao, float valor, String editora) throws ValorInvalidoException, EditoraInvalidaException {
-		super(descricao, valor, editora);
+	
+	public Revista() {
+	}
+
+	public Revista(String titulo, float valor, String editora) throws ValorInvalidoException, EditoraInvalidaException {
+		super(titulo, valor, editora);
 	}
 	
 	@Override
@@ -38,7 +49,7 @@ public class Revista extends Publicacao{
 		return periodicidade;
 	}
 	
-	public boolean ehImpressa() {
+	public boolean isImpressa() {
 		return impressa;
 	}
 
@@ -46,7 +57,7 @@ public class Revista extends Publicacao{
 		this.impressa = impressa;
 	}
 	
-	public boolean ehAdulta() {
+	public boolean isAdulta() {
 		return adulta;
 	}
 
@@ -54,11 +65,8 @@ public class Revista extends Publicacao{
 		this.adulta = adulta;
 	}
 	
-	public void setPeriodicidade(String periodicidade) throws PeriodicidadeInvalidaException {
+	public void setPeriodicidade(String periodicidade){
 
-		if(periodicidade == null || periodicidade.isBlank()) {
-			throw new PeriodicidadeInvalidaException("Impossível realizar o cadastramento da revista " + this.getDescricao() + " com a periodicidade invalida!");
-		}
 		
 		this.periodicidade = periodicidade;
 	}

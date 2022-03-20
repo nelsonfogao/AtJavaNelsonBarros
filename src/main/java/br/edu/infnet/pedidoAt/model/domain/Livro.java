@@ -1,8 +1,17 @@
 package br.edu.infnet.pedidoAt.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import br.edu.infnet.pedidoAt.exceptions.EditoraInvalidaException;
 import br.edu.infnet.pedidoAt.exceptions.ValorInvalidoException;
 
+
+
+
+
+@Entity
+@Table(name = "TLivro")
 public class Livro extends Publicacao{
 
 	private String ISBN;
@@ -11,9 +20,16 @@ public class Livro extends Publicacao{
 	private String categoria;
 	private boolean importado;
 
-	public Livro(String descricao, float valor, String editora) throws ValorInvalidoException, EditoraInvalidaException {
-		super(descricao, valor, editora);
+	
+	public Livro() {
+		
 	}
+	
+	public Livro(String titulo, float valor, String editora) throws ValorInvalidoException, EditoraInvalidaException {
+		super(titulo, valor, editora);
+	}
+	
+
 
 	@Override
 	public float calcularValor() {
@@ -63,7 +79,7 @@ public class Livro extends Publicacao{
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
-	public boolean ehImportado() {
+	public boolean isImportado() {
 		return importado;
 	}
 	public void setImportado(boolean importado) {

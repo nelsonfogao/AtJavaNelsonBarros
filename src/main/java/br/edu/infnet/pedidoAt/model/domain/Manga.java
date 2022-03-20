@@ -1,16 +1,28 @@
 package br.edu.infnet.pedidoAt.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import br.edu.infnet.pedidoAt.exceptions.EditoraInvalidaException;
 import br.edu.infnet.pedidoAt.exceptions.ValorInvalidoException;
 
+
+
+@Entity
+@Table(name = "TManga")
 public class Manga extends Publicacao{
 	private int volume;
 	private String autor;
 	private String categoria;
 	private boolean adulto;
 	
-	public Manga(String descricao, float valor, String editora) throws ValorInvalidoException, EditoraInvalidaException {
-		super(descricao, valor, editora);
+	
+	public Manga() {
+		
+	}
+
+	public Manga(String titulo, float valor, String editora) throws ValorInvalidoException, EditoraInvalidaException {
+		super(titulo, valor, editora);
 	}
 	
 	@Override

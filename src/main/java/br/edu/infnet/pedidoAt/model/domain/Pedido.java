@@ -4,8 +4,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-import br.edu.infnet.pedidoAt.exceptions.LeitorInexistenteException;
-import br.edu.infnet.pedidoAt.exceptions.PedidoSemPublicacoesException;
 
 public class Pedido {
 	
@@ -14,16 +12,7 @@ public class Pedido {
 	private Leitor leitor;
 	private List<Publicacao> publicacoes;
 	
-	public Pedido(Leitor leitor) throws LeitorInexistenteException {
-		
-		if(leitor == null) {
-			throw new LeitorInexistenteException("Impossível realizar o pedido sem um leitor associado!");
-		}
-		
-		this.descricao = "Pedido padrão";
-		this.data = LocalDateTime.now();
-		this.leitor = leitor;
-	}
+
 	
 	public float calcularValorTotalPedido() {
 		
@@ -51,11 +40,8 @@ public class Pedido {
 		return sb.toString();
 	}
 
-	public void impressao() throws PedidoSemPublicacoesException {
-		
-		if(publicacoes == null || publicacoes.size() <= 0) {
-			throw new PedidoSemPublicacoesException("Não existem produtos associados!!!");
-		}
+	public void impressao() {
+	
 
 		System.out.println("Relatório de Pedido:");
 		System.out.println(this);
