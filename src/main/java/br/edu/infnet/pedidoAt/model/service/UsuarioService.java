@@ -3,9 +3,8 @@ package br.edu.infnet.pedidoAt.model.service;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-
-
 
 import br.edu.infnet.pedidoAt.model.domain.Usuario;
 import br.edu.infnet.pedidoAt.model.repository.UsuarioRepository;
@@ -25,7 +24,7 @@ public class UsuarioService {
 	}
 	
 	public Collection<Usuario> obterLista(){		
-		return (Collection<Usuario>) usuarioRepository.findAll();
+		return (Collection<Usuario>) usuarioRepository.findAll(Sort.by(Sort.Direction.ASC, "nome"));
 	}	
 
 	public Usuario obterPorId(Integer id) {
