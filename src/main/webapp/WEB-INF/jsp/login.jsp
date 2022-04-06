@@ -24,7 +24,7 @@
 			<div class="form-group">
 				<label>E-mail:</label> <input type="email" class="form-control"
 					placeholder="Entre com o seu e-mail" name="email"
-					value="nelson@gmail.com">
+					value="nelson.barros@gmail.com">
 			</div>
 			<div class="form-group">
 				<label>Senha:</label> <input type="password" class="form-control"

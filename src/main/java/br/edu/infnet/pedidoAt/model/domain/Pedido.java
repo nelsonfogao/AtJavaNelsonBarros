@@ -4,16 +4,59 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
+import br.edu.infnet.pedidoAt.exceptions.LeitorInexistenteException;
+
+@Entity
+@Table(name = "TPedido", 
+uniqueConstraints = { 
+		@UniqueConstraint(columnNames = { "descricao", "idLeitor" }) 
+	}
+)
 public class Pedido {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	private String descricao;
 	private LocalDateTime data;
+	@OneToOne(cascade = CascadeType.DETACH)
+	@JoinColumn(name = "idLeitor")	
 	private Leitor leitor;
+	@ManyToMany(cascade = CascadeType.DETACH)
 	private List<Publicacao> publicacoes;
+	@ManyToOne
+	@JoinColumn(name = "idusuario")
+	private Usuario usuario;
 	
 
+	public Pedido() {
+		this.descricao = "Pedido padrão da empresa";
+		this.data = LocalDateTime.now();
+	}
 	
+	public Pedido(Leitor leitor) throws LeitorInexistenteException {
+		this();
+		
+		if(leitor == null) {
+			throw new LeitorInexistenteException("Impossível realizar o pedido sem um leitor associado!");
+		}
+		
+		this.leitor = leitor;
+	}
+	
+
 	public float calcularValorTotalPedido() {
 		
 		float valorTotal = 0;
@@ -67,24 +110,66 @@ public class Pedido {
 			);
 	}
 
+
+	public Integer getId() {
+		return id;
+	}
+
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
 	public String getDescricao() {
 		return descricao;
 	}
-	public LocalDateTime getData() {
-		return data;
-	}
-	public Leitor getLeitor() {
-		return leitor;
-	}
-	public List<Publicacao> getPublicacoes() {
-		return publicacoes;
-	}
+
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+
+
+	public LocalDateTime getData() {
+		return data;
+	}
+
+
+	public void setData(LocalDateTime data) {
+		this.data = data;
+	}
+
+
+	public Leitor getLeitor() {
+		return leitor;
+	}
+
+
+	public void setLeitor(Leitor leitor) {
+		this.leitor = leitor;
+	}
+
+
+	public List<Publicacao> getPublicacoes() {
+		return publicacoes;
+	}
+
+
 	public void setPublicacoes(List<Publicacao> publicacoes) {
 		this.publicacoes = publicacoes;
 	}
+
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+
 
 }

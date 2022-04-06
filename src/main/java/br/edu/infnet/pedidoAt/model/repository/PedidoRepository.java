@@ -7,13 +7,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import br.edu.infnet.pedidoAt.model.domain.Manga;
+import br.edu.infnet.pedidoAt.model.domain.Pedido;
 
 @Repository
-public interface MangaRepository extends CrudRepository<Manga, Integer>{
+public interface PedidoRepository extends CrudRepository<Pedido, Integer> {
 
-	@Query("from Manga m where m.usuario.id = :idUsuario")
-	Collection<Manga> findAll(Integer idUsuario, Sort by);
+	@Query("from Pedido p where p.usuario.id = :idUsuario")
+	Collection<Pedido> findAll(Integer idUsuario, Sort by);
 	
-	Collection<Manga> findAll(Sort by);
+	Collection<Pedido> findAll(Sort by);
 }

@@ -20,7 +20,7 @@ public class AcessoController {
 	
 	@Autowired
 	private UsuarioService usuarioService;
-
+	
 	@GetMapping(value = "/")
 	public String telaHome() {
 		return "home";		
@@ -56,7 +56,7 @@ public class AcessoController {
 				);
 
 			return telaLogin();
-		}	
+		}
 
 	}
 }

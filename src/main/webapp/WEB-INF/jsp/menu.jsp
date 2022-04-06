@@ -15,10 +15,12 @@
 			<ul class="navbar-nav ms-auto my-2 my-lg-0">
 				<c:if test="${not empty user}">
 					<li class="nav-item"><a class="nav-link" href="/usuarios">Usuário</a></li>
+					<li class="nav-item"><a class="nav-link" href="/leitores">Leitor</a></li>
 					<li class="nav-item"><a class="nav-link" href="/publicacoes">Publicacao</a></li>
 					<li class="nav-item"><a class="nav-link" href="/livros">Livro</a></li>
 					<li class="nav-item"><a class="nav-link" href="/mangas">Manga</a></li>
 					<li class="nav-item"><a class="nav-link" href="/revistas">Revista</a></li>
+					<li class="nav-item"><a class="nav-link" href="/pedidos">Pedido</a></li>
 				</c:if>
 
 

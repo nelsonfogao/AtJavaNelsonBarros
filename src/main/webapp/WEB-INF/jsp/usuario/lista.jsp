@@ -31,6 +31,10 @@
 						<th>Nome</th>
 						<th>E-mail</th>
 						<th>Admin</th>
+				        <th>Endereço</th>
+				        <th>Solicitantes</th>
+				        <th>Produtos</th>
+				        <th>Pedidos</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -40,6 +44,10 @@
 							<td>${u.nome}</td>
 							<td>${u.email}</td>
 							<td>${u.admin}</td>
+					        <td>${u.endereco.uf}</td>
+					        <td>${u.solicitantes.size()}</td>
+					        <td>${u.produtos.size()}</td>
+					        <td>${u.pedidos.size()}</td>
 							<td><c:if test="${user.admin}">
 									<c:if test="${user.id != u.id}">
 										<a href="/usuario/${u.id}/excluir">Excluir</a>

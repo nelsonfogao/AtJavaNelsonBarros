@@ -11,14 +11,19 @@
 	rel="stylesheet">
 </head>
 <body>
-	<header class="masthead">
-		<div class="container px-4 px-lg-5 h-100">
-			<c:import url="/WEB-INF/jsp/menu.jsp" />
-		</div>
-	</header>
+
+
 
 	<div class="container">
 
+		<form action="/cep" class="form-inline" method="post">	
+			<div class="form-group">
+				<label>Cep:</label>
+				<input type="text" class="form-control" name="cep" value="20771001"> 
+			</div>
+			
+			<button type="submit" class="btn btn-primary">Buscar</button>
+		</form>
 		<form action="/usuario/incluir" method="post">
 			<h2>Cadastramento de Usuários</h2>
 
@@ -29,7 +34,7 @@
 
 			<div class="form-group">
 				<label>E-mail:</label> <input type="email" class="form-control"
-					name="email" value="nelson.barros@gmail.com">
+					name="email" value="nelson.teste@hotmail.com">
 			</div>
 
 			<div class="form-group">
@@ -37,6 +42,7 @@
 					name="senha" value="123">
 			</div>
 
+			<c:import url="/WEB-INF/jsp/endereco.jsp"/>
 			<button type="submit">Cadastrar</button>
 		</form>
 
